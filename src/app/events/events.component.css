@@ -1,0 +1,67 @@
+/* Base styling for headers */
+h1.display-4 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+}
+
+#infogirl h1 {
+  color: #007bff;
+}
+#girls-talk h1 {
+  color: #28a745;
+}
+#tech-classroom h1 {
+  color: #ffc107;
+}
+#professions-future h1 {
+  color: #17a2b8;
+}
+#sbes h1 {
+  color: #dc3545;
+}
+#angular h1 {
+  color: #007bff;
+}
+#wei h1 {
+  color: #28a745;
+}
+figcaption {
+  font-style: italic;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+.img-fluid {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+video {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+section {
+  margin-bottom: 5rem;
+}
+
+section img {
+  margin-bottom: 1rem;
+}
+
+section video {
+  margin-bottom: 2rem;
+}
+
+.container {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  border-radius: 10px;
+}
+
+.text-center {
+  text-align: center;
+}

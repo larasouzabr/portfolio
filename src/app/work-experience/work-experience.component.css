@@ -1,0 +1,44 @@
+.work_experience_title {
+  margin-left: 3%;
+}
+
+.list-component {
+  border-left: 1px solid gray;
+  list-style: none;
+  margin-left: 5%;
+  padding-top: 20px;
+  align-items: center;
+}
+.list-component .__item {
+  background: url("../../assets/pics/1f7e3.png") no-repeat top left;
+  background-size: 40px 40px;
+
+  background-position: top left;
+  padding: 0 0 4px 60px;
+  margin-left: 1em;
+  position: relative;
+  right: 67px;
+  margin-bottom: 10px;
+  top: 10px;
+}
+
+.card-component {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 1em;
+  max-width: 450px;
+  font-family: Arial;
+  position: relative;
+  bottom: 20px;
+}
+
+.card-component .__year {
+}
+
+.card-component .__title {
+  font-size: 1em;
+}
+
+.card-component .__text {
+  color: gray;
+}
