@@ -7,14 +7,18 @@
 }
 
 .img {
-  background-image: url("../../assets/pics/Rectangle 2.png");
   background-size: cover;
   background-position: center;
-  width: 45%;
+  width: 100%;
   object-fit: cover;
 }
 
 .social-media {
   display: flex;
   justify-content: space-around;
+}
+
+.header {
+  height: 77vh;
+  width: 100%;
 }

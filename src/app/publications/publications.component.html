@@ -1,419 +1,141 @@
-<div class="container mt-5">
-  <div class="alert alert-info d-flex align-items-center">
-    <i
-      class="bi bi-exclamation-square-fill"
-      style="color: blueviolet; font-size: 1.5rem"
-    ></i>
-    <span class="ms-3"
-      >All papers that are published are in
-      <strong>APA citation format.</strong></span
-    >
+<section id="publications" class="py-5">
+  <div class="container px-4">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold mb-3">
+        My academic <span class="text-lilac">papers</span>
+      </h2>
+      <p class="lead text-muted mx-auto" style="max-width: 40rem">
+        A selection of my articles and conference papers.
+      </p>
+    </div>
+
+    <div *ngFor="let pub of publicationsData; let i = index">
+      <div
+        class="modal fade"
+        [id]="'abstractModal' + pub.id"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ pub.name }}</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p class="lead">Abstract</p>
+              <p>{{ pub.abstract }}</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+      <div class="col" *ngFor="let pub of publicationsData">
+        <div class="card h-100 shadow-sm transition-shadow">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start">
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span
+                    class="badge"
+                    [ngClass]="getCategoryBadgeClass(pub.category)"
+                  >
+                    <i class="bi bi-file-text-fill me-1"></i> {{ pub.category }}
+                  </span>
+
+                  <span
+                    *ngIf="pub.award"
+                    class="badge bg-warning"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="{{ pub.award }}"
+                  >
+                    <i class="bi bi-award-fill me-1"></i> Awarded
+                  </span>
+                </div>
+                <h5 class="card-title">{{ pub.name }}</h5>
+              </div>
+              <div class="d-flex flex-nowrap ms-3">
+                <a
+                  *ngIf="pub.fullArticleLink"
+                  [href]="pub.fullArticleLink"
+                  target="_blank"
+                  class="btn btn-outline-secondary btn-sm rounded-circle p-0"
+                  style="width: 32px; height: 32px; line-height: 32px"
+                  title="Read Full Article"
+                >
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+                <ng-container [ngSwitch]="pub.pdfAction?.type">
+                  <button
+                    *ngIf="pub.pdfAction?.value"
+                    (click)="handleDownload(pub.pdfAction!.value)"
+                    class="btn btn-outline-secondary btn-sm rounded-circle p-0 ms-2"
+                    style="width: 32px; height: 32px; line-height: 32px"
+                    title="Baixar PDF"
+                  >
+                    <i class="bi bi-download"></i>
+                  </button>
+                </ng-container>
+              </div>
+            </div>
+            <p class="card-text text-muted text-justify mt-3">
+              {{ pub.abstract | slice : 0 : 150 }}...
+
+              <a
+                class="link-primary mt-1"
+                data-bs-toggle="modal"
+                [attr.data-bs-target]="'#abstractModal' + pub.id"
+                role="button"
+              >
+                Read more
+              </a>
+            </p>
+            <div class="mt-auto pt-3">
+              <div class="d-flex flex-wrap gap-2">
+                <span
+                  *ngFor="let keyword of pub.keywords"
+                  class="badge keyword fw-normal"
+                >
+                  {{ keyword }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card-footer bg-transparent border-top-0 d-flex justify-content-between text-muted small"
+          >
+            <div class="d-flex align-items-center">
+              <i class="bi bi-calendar3 me-2"></i>
+              <span>{{ pub.year }}</span>
+            </div>
+            <div
+              *ngIf="pub.metrics?.citations"
+              class="d-flex align-items-center"
+            >
+              <i class="bi bi-quote me-2"></i>
+              <span>{{ pub.metrics?.citations?.count }} citations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <h1 class="my-4">Conference Proceedings Publications</h1>
-  <ul class="list-unstyled">
-    <li class="mb-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <a
-              href="#"
-              tooltip="Distinguished Paper Award 2024 - 38th Brazilian Symposium on Software Engineering, the premier conference on Software Engineering in Latin America;"
-            >
-              <i
-                class="bi bi-star"
-                style="color: #ffd75e; font-size: 1.5rem"
-              ></i>
-            </a>
-            <div class="ms-3">
-             
-                Bezerra, C., Alves, V., Lobo, A., Queiroz, J.,
-                <strong>Lima, L.</strong>, & Meirelles, P.
-              (2024). Contributing to open-source projects in refactoring code
-              smells: A practical experience in teaching Software Maintenance.
-              In
-              <em
-                >Proceedings of the 38th Brazilian Symposium on Software
-                Engineering</em
-              >, (pp. 399-409). Porto Alegre: SBC. doi:10.5753/sbes.2024.3507
-            </div>
-          </div>
-
-          <accordion [isAnimated]="true">
-            <accordion-group heading="Abstract">
-              Code smells are inadequate code structures that can harm quality
-              and maintainability. To remove these deficient structures,
-              developers use refactoring techniques. Refactoring helps code be
-              easier to understand and modify by eliminating potential problems
-              and improving internal quality attributes. Most refactoring
-              activities are usually performed manually and undisciplined, which
-              can cause code degradation. Concepts, practices, software
-              refactoring tools, and code smells are rarely discussed in
-              undergraduate computing courses. This problem is reflected in the
-              software industry, which generally does not use refactoring
-              practices to improve code readability and maintainability. In this
-              context, we present in this paper an experience report on teaching
-              the practice of code smell refactoring and the impact on internal
-              quality attributes through contribution to Open Source Software
-              (OSS) projects. The study was carried out in two undergraduate
-              classes in Software Quality and Software Maintenance courses, and
-              our main results were that: (i) students observed improvements in
-              code quality after refactoring smells; (ii) they noted connections
-              between refactoring, testing, and debugging; (iii) they felt less
-              confident refactoring code spread across multiple files; (iv) code
-              complexity hindered their ability to refactor; (v) the choice of
-              refactoring techniques depended on factors like project structure
-              and personal preference, with techniques often used in combination
-              to address a single smell; (vi) most refactorings decrease
-              internal quality attributes; (vii) contributing to OSS projects
-              fostered a sense of programmer growth; and, (viii) project clarity
-              was linked to its potential for collaboration.
-            </accordion-group>
-          </accordion>
-
-          <p class="mt-3">
-            <strong>Keywords:</strong> code smells, refactoring, software
-            engineering education, open-source software
-          </p>
-          <div class="d-flex align-items-center">
-            <i
-              class="bi bi-file-earmark-pdf"
-              style="font-size: 1.5rem; color: red; cursor: pointer"
-              (click)="downloadpdf('Contributing to open-source.pdf')"
-            ></i>
-            <span class="ms-2">Or read the</span>
-            <a
-              href="https://sol.sbc.org.br/index.php/sbes/article/view/30380"
-              target="_blank"
-              class="ms-1"
-              style="color: #007bff; text-decoration: underline"
-              >Full article</a
-            >
-            <span class="ms-1">in the Proceedings page</span>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <li class="mb-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <img src="../../assets/pics/brazilFlag.png" style="width: 20px" />
-            <div class="ms-3">
-              Rufino, A., Alves, V., <strong>Lima, L.</strong>, Queiroz, J.,
-              Bezerra, C., Machado, I., & Coutinho, E. (2024). TERTS: Um tutor
-              de ensino para refatoração de test smells. In Anais do XXXII
-              Workshop sobre Educação em Computação, (pp. 564-575). Porto
-              Alegre: SBC. doi:10.5753/wei.2024.2371
-            </div>
-          </div>
-
-          <accordion [isAnimated]="true">
-            <accordion-group heading="Abstract">
-              Teaching test smells refactoring has been a challenging practice
-              in the academic context. This paper introduces TERTS, a tutor for
-              teaching and practicing test smells refactoring developed for
-              technology students on a web platform. The article describes the
-              development of the platform and its acceptance by students.
-              Validation of the tool included measuring (i) acceptance and use,
-              (ii) students’ acquisition of skills during and after use, and
-              (iii) students’ level of knowledge about identifying and
-              refactoring test smells before and after using the tool. The
-              results indicate that TERTS is an effective and promising tool to
-              be implemented in the educational environment.
-            </accordion-group>
-          </accordion>
-
-          <p class="mt-3">
-            <strong>Keywords:</strong> Teaching Tutor, Refactoring, Test Smells
-          </p>
-          <div class="d-flex align-items-center">
-            <i
-              class="bi bi-file-earmark-pdf"
-              style="font-size: 1.5rem; color: red; cursor: pointer"
-              (click)="downloadpdf('terts.pdf')"
-            ></i>
-            <span class="ms-2">Or read the</span>
-            <a
-              href="https://sol.sbc.org.br/index.php/wei/article/view/29657"
-              target="_blank"
-              class="ms-1"
-              style="color: #007bff; text-decoration: underline"
-              >Full article</a
-            >
-            <span class="ms-1">in the Proceedings page</span>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <li class="mb-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <div class="ms-3">
-              Souza, A., de Souza Filho, J. C., Bezerra, C., Alves, V. A.,
-              <strong>Lima, L.</strong> , Marques, A. B., & Teixeira Monteiro,
-              I. (2024, October). Accessibility Evaluation of Web Systems for
-              People with Visual Impairments: Findings from a Literature Survey.
-              In Proceedings of the XXIII Brazilian Symposium on Human Factors
-              in Computing Systems (pp. 1-13).
-            </div>
-          </div>
-
-          <accordion [isAnimated]="true">
-            <accordion-group heading="Abstract">
-              Accessibility evaluation is essential to determine how accessible
-              a Web system is so that any user can access its content regardless
-              of their limitations. In this context, this work presents a
-              literature survey focused on the accessibility of Web systems,
-              targeting users with visual impairments, emphasizing the
-              importance of including accessibility from the initial phases to
-              the completion of system development. Based on systematic
-              procedures, we seek to provide a current view of the resources
-              available in the technical literature for evaluating Web
-              accessibility, with the primary goal of identifying and bringing
-              together a variety of attributes, methods, metrics, and tools for
-              accessibility improvement of Web systems. We analyzed 1245 papers
-              in the literature; among them, 52 studies demonstrated available
-              resources for evaluating systems by developers. We found that
-              manual evaluation, evaluation with expert users, evaluation with
-              end-users, and heuristic evaluation are the most recurrent
-              accessibility evaluation types. We also cataloged 22 automatic
-              tools, 16 attributes, 15 manual or automatic approaches, and seven
-              heuristics for evaluating accessibility in Web systems. From our
-              findings, it is possible to observe which resources have been used
-              to maintain compliance with accessibility standards, helping
-              professionals to include accessibility in their projects.
-            </accordion-group>
-          </accordion>
-
-          <p class="mt-3">
-            <strong>Keywords:</strong> web accessibility, evaluation of web
-            systems, visual impairment
-          </p>
-          <div class="d-flex align-items-center">
-            <i
-              class="bi bi-file-earmark-pdf"
-              style="font-size: 1.5rem; color: red; cursor: pointer"
-              (click)="
-                downloadpdf('Accessibility-Evaluation-of-Web-Systems.pdf')
-              "
-            ></i>
-            <span class="ms-2">Or read the</span>
-            <a
-              href="https://dl.acm.org/doi/abs/10.1145/3702038.3702090"
-              target="_blank"
-              class="ms-1"
-              style="color: #007bff; text-decoration: underline"
-              >Full article</a
-            >
-            <span class="ms-1">in the Proceedings page</span>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
-
-  <h1 class="my-4">Event Proceedings Summaries</h1>
-
-  <ul class="list-unstyled">
-    <li class="mb-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <img src="../../assets/pics/brazilFlag.png" style="width: 20px" />
-            <div class="ms-3">
-              Tutor de ensino para a refatoração de test smells: uma proposta de
-              extensão do TERTS - Caio Rian R. de Sousa,
-              <strong>Lara Gabrielly S. B. Lima</strong> , Edivar C. Carvalho
-              Filho, Guilherme P. Borges, Victor Anthony P. Alves, Carla Ilane
-              Moreira Bezerra (2024)
-            </div>
-          </div>
-
-          <accordion [isAnimated]="true">
-            <accordion-group heading="Abstract">
-              In this work, we present a proposal to extend the Teaching Tutor
-              for Test Smell Refactoring (TERTS), designed to enhance user
-              experience through a renewed and responsive interface,
-              internationalization support, and the addi- tion of two new types
-              of test smells: Magic Number Test and Sleepy Test. These new
-              features, along with practical exercises, aim to address the
-              increasing com- plexity of software development, emphasizing the
-              importance of effectively iden- tifying and resolving issues in
-              tests. The tutor provides practical activities in Java, consisting
-              of unit test code, to help students understand and solve these
-              problems, fostering a deeper learning of software testing best
-              practices.
-            </accordion-group>
-          </accordion>
-
-          <p class="mt-3">
-            <strong>Keywords:</strong> TERTS, Refactoring, Test Smells
-          </p>
-          <a
-            href="https://drive.google.com/file/d/1CAtj5-86Gndlk7vhU4qsIIENxy5D0w55/view"
-            target="_blank"
-            class="ms-2"
-            >Open PDF (navigate to page 324)</a
-          >
-          <p>
-            <strong
-              >Once the PDF is opened, go to page 324 for the relevant
-              section.</strong
-            >
-          </p>
-        </div>
-      </div>
-    </li>
-
-    <li class="mb-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <a
-              href="#"
-              tooltip="Distinguished Paper Award - Academic Meetings 2024"
-            >
-              <i
-                class="bi bi-star"
-                style="color: #ffd75e; font-size: 1.5rem"
-              ></i>
-            </a>
-            <img
-              src="../../assets/pics/brazilFlag.png"
-              style="width: 20px"
-              class="ms-3"
-            />
-            <div class="ms-3">
-              Investigando o código de teste refatorado por LLMs - Guilherme
-              Pereira Borges, Victor Anthony Alves, Edivar Cruz Carvalho Filho,
-              Caio Rian Reinaldo de Sousa,
-              <strong>Lara Gabrielly Souza Batista Lima</strong>, Carla Ilane
-              Moreira Bezerra (2024)
-            </div>
-          </div>
-
-          <accordion [isAnimated]="true">
-            <accordion-group heading="Abstract">
-              This study explores the use of Large Language Models (LLMs) Ge-
-              mini, Microsoft Copilot, and o1-Preview in the refactoring of test
-              code, using test smells as an evaluation metric. To this end, a
-              repository containing tests that already exhibited smells in their
-              structure was used, and each model performed the refactoring.
-              Subsequently, a quantitative analysis of test smells occurrences
-              was conducted before and after the refactoring. The results show
-              that, despite quantitative differences in detection, all three
-              LLMs were effective in refactoring and removing most of the test
-              smells present in the tests.
-            </accordion-group>
-          </accordion>
-
-          <p class="mt-3">
-            <strong>Keywords:</strong> Large Language Models, Refactoring, Test
-            Smells
-          </p>
-          <a
-            href="https://drive.google.com/file/d/1CAtj5-86Gndlk7vhU4qsIIENxy5D0w55/view"
-            target="_blank"
-            class="ms-2"
-          >
-            Open PDF (navigate to page 383)</a
-          >
-        </div>
-      </div>
-    </li>
-    <li class="mb-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <img
-              src="../../assets/pics/brazilFlag.png"
-              style="width: 20px"
-              class="ms-3"
-            />
-            <div class="ms-3">
-              Uma proposta de desenvolvimento de um tutor de ensino para
-              refatoração de test smells - João Paulo F. Queiroz,
-              <strong>Lara Gabrielly S. B. Lima</strong>, Antonia Deigela L.
-              Rufino, Victor Anthony P. Alves, Carla Ilane Moreira Bezerra
-              (2023)
-            </div>
-          </div>
-
-          <accordion [isAnimated]="true">
-            <accordion-group heading="Abstract">
-              In this work, we propose the development of a teaching tutor for
-              refactoring test smells, with the aim of improving the teaching of
-              this practice. The increasing complexity of software development
-              requires effective identification and correction of testing
-              problems. The tutor will offer practical exercises in Java,
-              consisting of unit test code, to help students understand and
-              solve these problems.
-            </accordion-group>
-          </accordion>
-
-          <p class="mt-3">
-            <strong>Keywords:</strong> Teaching Tutor, Refactoring, Test Smells
-          </p>
-          <a
-            href="https://drive.google.com/file/d/139NQ64hBONoyEsbZB5kbAR_r-awaOdN8/view"
-            target="_blank"
-            class="ms-2"
-          >
-            Open PDF (navigate to page 368)
-          </a>
-        </div>
-      </div>
-    </li>
-    <li class="mb-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <img
-              src="../../assets/pics/brazilFlag.png"
-              style="width: 20px"
-              class="ms-3"
-            />
-            <div class="ms-3">
-              Uma revisão da literatura sobre o ensino e prática de refatoração
-              de test smells - João Paulo F. Queiroz,
-              <strong>Lara Gabrielly S. B. Lima</strong>, Antonia Deigela L.
-              Rufino, Victor Anthony P. Alves, Carla Ilane Moreira Bezerra
-              (2023)
-            </div>
-          </div>
-
-          <accordion [isAnimated]="true">
-            <accordion-group heading="Abstract">
-              This paper conducts a review of studies related to teaching
-              refactoring of test smells in software engineering. The results
-              are derived from a comparative analysis of the themes addressed in
-              the selected studies, allowing for the identification of potential
-              gaps and limitations in existing research, as well as pointing out
-              promising directions for future investigations. Thus, this review
-              serves as a valuable source of information for researchers and
-              professi- onals seeking to deepen their understanding and
-              contribute to the advancement of studies on refactoring test
-              smells.
-            </accordion-group>
-          </accordion>
-
-          <p class="mt-3">
-            <strong>Keywords:</strong> Test Smells, Teaching Tutor, Software
-            Testing
-          </p>
-          <a
-            href="https://drive.google.com/file/d/139NQ64hBONoyEsbZB5kbAR_r-awaOdN8/view"
-            target="_blank"
-            class="ms-2"
-          >
-            Open PDF (navigate to page 383)
-          </a>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
+</section>
