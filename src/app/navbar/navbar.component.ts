@@ -17,7 +17,6 @@ export class NavbarComponent {
   public navItems: NavItem[] = [
     { href: '#about', label: 'About' },
     { href: '#experience', label: 'Experience' },
-    { href: '#projects', label: 'Projects' },
     { href: '#publications', label: 'Papers' },
     { href: '#events', label: 'Events' },
   ];

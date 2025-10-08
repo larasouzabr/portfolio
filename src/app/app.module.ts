@@ -11,6 +11,7 @@ import { EventsComponent } from './events/events.component';
 import { HeaderComponent } from './events/header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
