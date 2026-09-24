@@ -16,6 +16,7 @@ interface NavItem {
 export class NavbarComponent {
   public navItems: NavItem[] = [
     { href: '#about', label: 'About' },
+    { href: '#projects', label: 'Projects' },
     { href: '#experience', label: 'Experience' },
     { href: '#publications', label: 'Papers' },
     { href: '#events', label: 'Events' },

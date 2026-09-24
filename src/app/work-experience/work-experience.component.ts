@@ -18,7 +18,7 @@ export class WorkExperienceComponent {
       company:
         'Secretariat of Science, Technology, and Higher Education of Ceará - SECITECE',
       position: 'Front-end Developer ',
-      period: '2024 - Now',
+      period: '2024 - 2025',
       location: 'Remote',
       description:
         'Development of web interfaces and applications using Next.js.',

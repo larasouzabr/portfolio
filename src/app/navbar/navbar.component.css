@@ -1,3 +1,13 @@
 .nav-link {
   cursor: pointer;
 }
+
+.btn-outline-lilac {
+  border: 1px solid #9b59b6;
+  color: #9b59b6;
+}
+
+.btn-outline-lilac:hover {
+  background-color: #9b59b6;
+  color: #fff;
+}

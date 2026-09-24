@@ -1,19 +1,35 @@
-/* No seu app.component.css */
-.container {
-  height: 100vh;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  /* Para Firefox */
-  scrollbar-width: none;
-
-  -ms-overflow-style: none;
-}
-
 .container > * {
-  scroll-snap-align: start;
-  height: 100vh;
+  scroll-margin-top: 80px;
 }
 
-.container::-webkit-scrollbar {
-  display: none;
+.site-footer {
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f2e6f4;
+  color: #7e3594;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+  background: #9b59b6;
+  color: #fff;
+  transform: translateY(-3px);
 }

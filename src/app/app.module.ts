@@ -10,6 +10,8 @@ import { WorkExperienceComponent } from './work-experience/work-experience.compo
 import { EventsComponent } from './events/events.component';
 import { HeaderComponent } from './events/header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RecognitionComponent } from './recognition/recognition.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     TooltipModule.forRoot(),
     PublicationsComponent,
     NavbarComponent,
+    RecognitionComponent,
+    ProjectsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
