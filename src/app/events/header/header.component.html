@@ -1,28 +1,78 @@
-<div class="row align-items-center mt-5">
+<div class="row align-items-center">
   <div class="col-md-6">
     <h3 class="text-muted">Nice to meet you! I'm</h3>
-    <h2 class="text-2xl font-bolder typing-text" style="color: #7e3594">
-      Lara Gabrielly Lima
+    <h2 class="text-2xl font-bolder" style="color: #7e3594">
+      <span class="typing-text">Lara Gabrielly Lima</span>
     </h2>
     <p class="text-lg description">
-      I am a Brazilian software developer with a strong foundation in
-      TypeScript, Java, and frontend frameworks including Vue, Angular, and
-      React. I completed my studies in Software Engineering at the Federal
-      University of Ceará (UFC). During my time there, I worked as a programmer
-      and researcher on various international projects and held prestigious
-      positions, including an Institutional Program of Scientific Initiation
-      Scholarships (PIBIC) scholarship at UFC - Quixadá, and a developer scholar
-      at FUNCAP. Currently, I am a <STRONG>direct PhD candidate</STRONG> in
-      Computer Science and Computational Mathematics at the University of São
-      Paulo (USP), at the Institute of Mathematics and Computer Sciences (ICMC).
-      My research focuses on Code Quality and Inclusive Software Engineering —
-      spanning code/test smell refactoring, the application of LLMs in software
-      development, human-computer interaction, and web accessibility — with
-      work recognized at venues including ICSE, SBES, and LLM4Code.
+      I'm a Brazilian software engineer and a
+      <strong>direct PhD candidate</strong> in Computer Science and
+      Computational Mathematics at ICMC, University of São Paulo (USP). My
+      thesis, still being defined, investigates
+      <strong>anthropomorphism in AI and its potential harms</strong>.
     </p>
+    <p class="description text-muted">
+      I hold a B.Sc. in Software Engineering from the Federal University of
+      Ceará (UFC), where I worked as a researcher (PIBIC) and developer
+      (FUNCAP) on international projects. My research spans code quality and
+      inclusive software engineering, including code/test smell refactoring,
+      LLMs in software development, HCI, and web accessibility, with work recognized
+      at ICSE, SBES, and LLM4Code. I also bring industry experience with
+      TypeScript, Java, Angular, React, and Vue.
+    </p>
+    <div class="d-flex flex-wrap gap-2 mb-3">
+      <span class="chip" *ngFor="let interest of interests">{{ interest }}</span>
+    </div>
+    <ul class="social-links mb-4">
+      <li>
+        <a href="https://github.com/larasouzabr" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/lara-souza-engsoftware/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://lattes.cnpq.br/8966559885773392" target="_blank" rel="noopener" aria-label="Lattes" title="Lattes">
+          <img src="assets/pics/icon-lattes.png" alt="" width="18" height="18" />
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/citations?user=yfWezKEAAAAJ&hl=pt-BR" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
+          <i class="bi bi-mortarboard-fill"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://orcid.org/0009-0000-9740-9336" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID">
+          <i class="bi bi-person-badge-fill"></i>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:laragabriellysouzabatista@gmail.com" aria-label="Email" title="Email">
+          <i class="bi bi-envelope-fill"></i>
+        </a>
+      </li>
+    </ul>
   </div>
 
   <div class="col-md-6 d-flex justify-content-center slide-in-photo">
     <img src="../../assets/pics/perfil.png" alt="Foto" class="img img-fluid" />
+  </div>
+</div>
+
+<div class="highlights mt-5">
+  <h3 class="h6 text-uppercase fw-bold text-muted mb-3 highlights-title">Highlights</h3>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+    <div class="col" *ngFor="let h of highlights">
+      <div class="highlight-card h-100">
+        <i class="bi highlight-icon" [ngClass]="h.icon"></i>
+        <div>
+          <div class="fw-semibold small">{{ h.title }}</div>
+          <div class="text-muted small">{{ h.detail }}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

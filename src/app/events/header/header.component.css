@@ -1,9 +1,12 @@
-.container {
-  margin-top: 5%;
+:host {
+  display: block;
+  /* clears the fixed navbar */
+  padding-top: 6rem;
 }
 
 .description {
-  text-align: justify;
+  text-align: left;
+  line-height: 1.7;
 }
 
 .img {
@@ -24,20 +27,24 @@
 }
 
 .typing-text {
-  width: 0;
+  display: inline-block;
+  max-width: 0;
   overflow: hidden;
   white-space: nowrap;
+  vertical-align: bottom;
+  padding-right: 0.1em;
 
-  border-right: 0.15em solid #7e3594;
-  animation: typing 5s steps(17, end) forwards, blink-caret 0.75s step-end;
+  border-right: 0.12em solid #7e3594;
+  animation: typing 2.5s steps(19, end) forwards,
+    blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
   from {
-    width: 0;
+    max-width: 0;
   }
   to {
-    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -64,4 +71,28 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.highlights-title {
+  letter-spacing: 0.08em;
+}
+
+.highlight-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: #fff;
+  border-radius: 12px;
+  border-left: 4px solid #d8b4fe;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 0.9rem 1rem;
+}
+
+.highlight-icon {
+  font-size: 1.3rem;
+  color: #9b59b6;
+}
+
+.highlight-card .bi-trophy-fill {
+  color: #f0ad4e;
 }

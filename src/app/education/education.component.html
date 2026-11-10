@@ -1,0 +1,62 @@
+<section id="education" class="py-5">
+  <div class="container px-4">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold mb-3">
+        My <span class="text-lilac">Education</span>
+      </h2>
+      <p class="lead text-muted mx-auto" style="max-width: 40rem">
+        Academic background and complementary training.
+      </p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+      <div class="col" *ngFor="let d of degrees">
+        <article class="edu-card h-100">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="text-muted small">
+              <i class="bi bi-calendar3 me-1"></i>{{ d.period }}
+            </span>
+            <span *ngIf="d.status" class="badge status-badge">{{ d.status }}</span>
+          </div>
+          <h3 class="h5 fw-bold mb-1">{{ d.degree }}</h3>
+          <div class="text-lilac fw-semibold small">
+            <i class="bi bi-mortarboard me-1"></i>{{ d.institution }}
+          </div>
+          <div class="edu-detail">
+            <div class="edu-label">{{ d.thesisLabel }}</div>
+            <p class="small mb-0">{{ d.thesis }}</p>
+          </div>
+          <div class="edu-advisors">
+            <div class="small" *ngFor="let a of d.advisors">
+              <i class="bi bi-person me-1 text-lilac"></i>
+              <span class="text-muted">{{ a.role }}:</span> {{ a.name }}
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <h3 class="h5 fw-bold mb-3">Complementary Training</h3>
+        <ul class="course-list">
+          <li *ngFor="let c of courses">
+            <div class="fw-semibold">{{ c.name }}</div>
+            <div class="text-muted small">
+              {{ c.institution }} &middot; {{ c.period }} &middot; {{ c.hours }}
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-5">
+        <h3 class="h5 fw-bold mb-3">Languages</h3>
+        <ul class="language-list">
+          <li *ngFor="let l of languages">
+            <span class="fw-semibold">{{ l.name }}</span>
+            <span class="text-muted small">{{ l.level }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

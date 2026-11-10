@@ -1,0 +1,71 @@
+.text-lilac {
+  color: #9b59b6 !important;
+}
+
+.edu-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  border-left: 6px solid #d8b4fe;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.edu-card:hover {
+  box-shadow: 0 6px 20px rgba(155, 89, 182, 0.2);
+  transform: translateY(-3px);
+}
+
+.edu-detail {
+  margin: 1.25rem 0;
+  padding: 0.85rem 1rem;
+  background: #faf5ff;
+  border-radius: 8px;
+}
+
+.edu-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #7e3594;
+  margin-bottom: 0.25rem;
+}
+
+.edu-advisors {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid #f2e6f4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.status-badge {
+  background-color: #e0cffc;
+  color: #3d1a78;
+}
+
+.course-list,
+.language-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.course-list li {
+  padding: 0.75rem 0 0.75rem 1rem;
+  border-left: 3px solid #d8b4fe;
+  margin-bottom: 0.5rem;
+}
+
+.language-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f2e6f4;
+}

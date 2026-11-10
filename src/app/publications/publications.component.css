@@ -41,10 +41,11 @@
 }
 .card {
   transition: all 0.3s ease-in-out;
+  border: none;
   border-left: 6px solid #d8b4fe;
   border-radius: 12px;
   background: white;
-  padding: 16px;
+  padding: 1.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 .badge-purple-light {
@@ -73,7 +74,7 @@
 }
 
 .card-body {
-  padding: 1rem;
+  padding: 0;
 }
 
 a {
@@ -81,8 +82,8 @@ a {
 }
 
 .card-footer {
-  padding: 0.75rem 1rem;
-  background: #fafafa;
+  padding: 0.75rem 0 0;
+  background: transparent;
 }
 
 .category {
@@ -111,12 +112,22 @@ a {
   margin-top: 8px;
 }
 
-.keyword {
+.award-note {
+  color: #b8860b;
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.scholar-link {
   display: inline-block;
+  margin-top: 0.5rem;
+  color: #7e3594;
   background: #f3e8ff;
-  color: #6b21a8;
-  padding: 2px 8px;
-  border-radius: 8px;
-  margin-right: 5px;
-  font-size: 0.85em;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+}
+
+.scholar-link:hover {
+  background: #e9d5ff;
 }

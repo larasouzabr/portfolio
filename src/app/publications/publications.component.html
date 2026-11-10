@@ -2,11 +2,33 @@
   <div class="container px-4">
     <div class="text-center mb-5">
       <h2 class="display-5 fw-bold mb-3">
-        My academic <span class="text-lilac">papers</span>
+        Academic <span class="text-lilac">Papers</span>
       </h2>
       <p class="lead text-muted mx-auto" style="max-width: 40rem">
         A selection of my articles and conference papers.
       </p>
+      <a
+        class="scholar-link small"
+        href="https://scholar.google.com/citations?user=yfWezKEAAAAJ&hl=en"
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="bi bi-mortarboard-fill me-1"></i>21 citations · 13 works on
+        Google Scholar <span class="text-muted">(Nov 2026)</span>
+      </a>
+    </div>
+
+    <div class="filter-chips" role="group" aria-label="Filter papers">
+      <button
+        type="button"
+        class="filter-chip"
+        *ngFor="let f of filters"
+        [class.active]="activeFilter === f.key"
+        [attr.aria-pressed]="activeFilter === f.key"
+        (click)="setFilter(f.key)"
+      >
+        {{ f.label }}<span class="count">{{ f.count }}</span>
+      </button>
     </div>
 
     <div *ngFor="let pub of publicationsData; let i = index">
@@ -37,7 +59,7 @@
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Fechar
+                Close
               </button>
             </div>
           </div>
@@ -46,7 +68,7 @@
     </div>
 
     <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
-      <div class="col" *ngFor="let pub of publicationsData">
+      <div class="col" *ngFor="let pub of visiblePublications; trackBy: trackById">
         <div class="card h-100 shadow-sm transition-shadow">
           <div class="card-body d-flex flex-column">
             <div class="d-flex justify-content-between align-items-start">
@@ -59,17 +81,14 @@
                     <i class="bi bi-file-text-fill me-1"></i> {{ pub.category }}
                   </span>
 
-                  <span
-                    *ngIf="pub.award"
-                    class="badge bg-warning"
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="{{ pub.award }}"
-                  >
-                    <i class="bi bi-award-fill me-1"></i> Awarded
+                  <span class="text-muted small">
+                    <i class="bi bi-calendar3 me-1"></i>{{ pub.year }}
                   </span>
                 </div>
-                <h5 class="card-title">{{ pub.name }}</h5>
+                <h3 class="h5 fw-bold mb-1">{{ pub.name }}</h3>
+                <div *ngIf="pub.award" class="award-note">
+                  <i class="bi bi-trophy-fill me-1"></i>{{ pub.award }}
+                </div>
               </div>
               <div class="d-flex flex-nowrap ms-3">
                 <a
@@ -88,14 +107,14 @@
                     (click)="handleDownload(pub.pdfAction!.value)"
                     class="btn btn-outline-secondary btn-sm rounded-circle p-0 ms-2"
                     style="width: 32px; height: 32px; line-height: 32px"
-                    title="Baixar PDF"
+                    title="Download PDF"
                   >
                     <i class="bi bi-download"></i>
                   </button>
                 </ng-container>
               </div>
             </div>
-            <p class="card-text text-muted text-justify mt-3">
+            <p class="text-muted small mt-3 mb-0">
               {{ pub.abstract | slice : 0 : 150 }}...
 
               <a
@@ -111,7 +130,7 @@
               <div class="d-flex flex-wrap gap-2">
                 <span
                   *ngFor="let keyword of pub.keywords"
-                  class="badge keyword fw-normal"
+                  class="chip"
                 >
                   {{ keyword }}
                 </span>
@@ -120,18 +139,12 @@
           </div>
 
           <div
+            *ngIf="(pub.metrics?.citations?.count ?? 0) > 0"
             class="card-footer bg-transparent border-top-0 d-flex justify-content-between text-muted small"
           >
             <div class="d-flex align-items-center">
-              <i class="bi bi-calendar3 me-2"></i>
-              <span>{{ pub.year }}</span>
-            </div>
-            <div
-              *ngIf="pub.metrics?.citations"
-              class="d-flex align-items-center"
-            >
               <i class="bi bi-quote me-2"></i>
-              <span>{{ pub.metrics?.citations?.count }} citations</span>
+              <span>{{ pub.metrics?.citations?.count }} {{ pub.metrics?.citations?.count === 1 ? 'citation' : 'citations' }}</span>
             </div>
           </div>
         </div>

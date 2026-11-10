@@ -5,12 +5,25 @@
         Outreach & <span class="text-lilac">Talks</span>
       </h2>
       <p class="lead text-muted mx-auto" style="max-width: 40rem">
-        Lectures, workshops, and conference presentations.
+        Lectures, workshops, conference presentations, and media appearances.
       </p>
     </div>
 
+    <div class="filter-chips" role="group" aria-label="Filter events">
+      <button
+        type="button"
+        class="filter-chip"
+        *ngFor="let f of filters"
+        [class.active]="activeFilter === f.key"
+        [attr.aria-pressed]="activeFilter === f.key"
+        (click)="setFilter(f.key)"
+      >
+        {{ f.label }}<span class="count">{{ f.count }}</span>
+      </button>
+    </div>
+
     <div class="row row-cols-1 row-cols-lg-2 g-4">
-      <div class="col" *ngFor="let event of events">
+      <div class="col" *ngFor="let event of visibleEvents; trackBy: trackById">
         <article class="event-card h-100">
           <div class="d-flex align-items-center gap-2 mb-2">
             <span class="badge" [ngClass]="'tag-' + event.tag.toLowerCase()">
@@ -25,15 +38,15 @@
           </div>
 
           <h3 class="event-title h5 fw-bold mb-2">{{ event.title }}</h3>
-          <p class="text-muted mb-3" [innerHTML]="event.description"></p>
+          <p class="text-muted small mb-3" [innerHTML]="event.description"></p>
 
           <div class="event-media" *ngIf="event.images as images">
             <div class="event-gallery" [class.single]="images.length === 1">
-              <img
+              <app-photo-slot
                 *ngFor="let image of images"
                 [src]="image.src"
                 [alt]="image.alt"
-              />
+              ></app-photo-slot>
             </div>
           </div>
 
@@ -42,6 +55,19 @@
               <source [src]="video.src" type="video/mp4" />
               Formato não suportado
             </video>
+          </div>
+
+          <div class="event-media" *ngIf="event.youtubeUrl as url">
+            <div class="ratio ratio-16x9">
+              <iframe
+                [src]="url"
+                [title]="event.title"
+                class="event-youtube"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
           </div>
 
           <figcaption *ngIf="event.caption" class="event-caption">

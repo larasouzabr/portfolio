@@ -1,0 +1,36 @@
+<section id="research" class="py-5">
+  <div class="container px-4">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold mb-3">
+        Research <span class="text-lilac">Projects</span>
+      </h2>
+      <p class="lead text-muted mx-auto" style="max-width: 40rem">
+        Research and development projects I've been part of.
+      </p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col" *ngFor="let p of projects">
+        <article class="research-card h-100">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="text-muted small">
+              <i class="bi bi-calendar3 me-1"></i>{{ p.period }}
+            </span>
+            <span class="badge status-badge">{{ p.status }}</span>
+          </div>
+          <h3 class="h5 fw-bold mb-1">{{ p.title }}</h3>
+          <div class="text-lilac fw-semibold small mb-1">
+            <i class="bi bi-building me-1"></i>{{ p.institution }}
+          </div>
+          <div class="text-muted small mb-3">Coordinator: {{ p.coordinator }}</div>
+          <p class="text-muted small mb-3">{{ p.description }}</p>
+          <div class="research-outputs">
+            <span class="chip" *ngFor="let o of p.outputs">
+              <i class="bi bi-journal-text me-1"></i>{{ o }}
+            </span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

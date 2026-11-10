@@ -32,6 +32,11 @@
   color: #7e3594;
 }
 
+.tag-media {
+  background-color: #fde68a;
+  color: #78350f;
+}
+
 .tag-conference {
   background-color: #6f42c1;
   color: #fff;
@@ -52,16 +57,14 @@
   grid-template-columns: minmax(120px, 220px);
 }
 
-.event-gallery img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.event-media video {
+  max-width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.event-media video {
-  max-width: 100%;
+.event-youtube {
+  border: 0;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }

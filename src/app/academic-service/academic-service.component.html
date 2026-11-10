@@ -1,0 +1,28 @@
+<section id="service" class="py-5">
+  <div class="container px-4">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold mb-3">
+        Academic <span class="text-lilac">Service</span>
+      </h2>
+      <p class="lead text-muted mx-auto" style="max-width: 40rem">
+        Reviewing and evaluation work for the research community.
+      </p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col" *ngFor="let g of groups">
+        <article class="service-card h-100">
+          <h3 class="h5 fw-bold mb-3">
+            <i class="bi text-lilac me-2" [ngClass]="g.icon"></i>{{ g.title }}
+          </h3>
+          <ul class="service-list">
+            <li *ngFor="let item of g.items">
+              <div class="fw-semibold">{{ item.role }}</div>
+              <div class="text-muted small">{{ item.venue }} &middot; {{ item.year }}</div>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

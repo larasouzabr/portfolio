@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 interface EventImage {
   src: string;
@@ -12,13 +13,16 @@ interface EventVideo {
 
 interface EventItem {
   id: number;
-  tag: 'Outreach' | 'Talk' | 'Conference';
+  tag: 'Outreach' | 'Talk' | 'Conference' | 'Media';
   title: string;
   year: number;
   location?: string;
   description: string;
   images?: EventImage[];
   video?: EventVideo;
+  /** YouTube video id, e.g. 'Dj0oIyakPTY' */
+  youtubeId?: string;
+  youtubeUrl?: SafeResourceUrl;
   caption?: string;
 }
 
@@ -29,6 +33,51 @@ interface EventItem {
 })
 export class EventsComponent {
   events: EventItem[] = (<EventItem[]>[
+    {
+      id: 10,
+      tag: 'Outreach',
+      title: 'Mentor at the CBSoft High School Track',
+      year: 2026,
+      location: 'São Paulo, SP',
+      description:
+        'Mentored <strong>three high school projects</strong> in the High School track of CBSoft 2026 (Brazilian Conference on Software: Theory and Practice), supporting students as they developed and presented their work.',
+    },
+    {
+      id: 11,
+      tag: 'Conference',
+      title: 'Poster at the 6th Latin American School of Software Engineering (CBSoft 2026)',
+      year: 2026,
+      location: 'São Paulo, SP',
+      description:
+        'Selected for the <strong>LATAM School of Software Engineering</strong>, held alongside CBSoft 2026 for early-career software engineering researchers from Latin America. I presented a research poster and received mentoring from experienced researchers.',
+    },
+    {
+      id: 12,
+      tag: 'Conference',
+      title: 'AWS Summit São Paulo 2026',
+      year: 2026,
+      location: 'São Paulo, SP',
+      description:
+        "Attended AWS Summit São Paulo, AWS's one-day event on the latest cloud and AI innovations, with keynotes, technical sessions, and workshops.",
+    },
+    {
+      id: 8,
+      tag: 'Media',
+      title:
+        'GABI: A Framework for Developing Inclusive Financial Software for Older Adults (Interview)',
+      year: 2026,
+      description:
+        'Interview on the <strong>Fronteiras da Engenharia de Software</strong> channel about <strong>GABI</strong>, the community-driven framework for engineering inclusive Internet Banking software for older adults, representing UFC Quixadá and ICMC/USP.',
+      youtubeId: 'Dj0oIyakPTY',
+    },
+    {
+      id: 9,
+      tag: 'Media',
+      title: 'Science Communication: #OrgulhoUFCQuixadá Roundtable',
+      year: 2025,
+      description:
+        "Roundtable in UFC Quixadá's <strong>#OrgulhoUFCQuixadá</strong> science communication series, highlighting research developed at the campus.",
+    },
     {
       id: 1,
       tag: 'Outreach',
@@ -135,4 +184,39 @@ export class EventsComponent {
       ],
     },
   ]).sort((a, b) => b.year - a.year);
+
+  readonly tags: EventItem['tag'][] = ['Outreach', 'Talk', 'Conference', 'Media'];
+  filters: { key: string; label: string; count: number }[] = [];
+  activeFilter = 'all';
+  visibleEvents: EventItem[] = this.events;
+
+  setFilter(key: string): void {
+    this.activeFilter = key;
+    this.visibleEvents =
+      key === 'all' ? this.events : this.events.filter((e) => e.tag === key);
+  }
+
+  trackById(_: number, event: EventItem): number {
+    return event.id;
+  }
+
+  constructor(sanitizer: DomSanitizer) {
+    this.filters = [
+      { key: 'all', label: 'All', count: this.events.length },
+      ...this.tags.map((tag) => ({
+        key: tag,
+        label: tag,
+        count: this.events.filter((e) => e.tag === tag).length,
+      })),
+    ].filter((f) => f.count > 0);
+
+    // Computed once so the iframe isn't reloaded on every change detection.
+    for (const event of this.events) {
+      if (event.youtubeId) {
+        event.youtubeUrl = sanitizer.bypassSecurityTrustResourceUrl(
+          `https://www.youtube.com/embed/${event.youtubeId}`
+        );
+      }
+    }
+  }
 }

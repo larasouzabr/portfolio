@@ -72,7 +72,7 @@ export class PublicationsComponent {
       fullArticleLink:
         'https://sol.sbc.org.br/index.php/sbes/article/view/30380',
       year: 2024,
-      metrics: { citations: { count: 1 } },
+      metrics: { citations: { count: 4 } },
     },
     {
       id: 2,
@@ -97,7 +97,7 @@ export class PublicationsComponent {
       isPortuguese: false,
       name: 'Accessibility Evaluation of Web Systems for People with Visual Impairments: Findings from a Literature Survey',
       year: 2024,
-      metrics: { citations: { count: 3 } },
+      metrics: { citations: { count: 12 } },
       citationHTML: `Souza, A., de Souza Filho, J. C., Bezerra, C., Alves, V. A., <strong>Lima, L.</strong>, Marques, A. B., & Teixeira Monteiro, I. (2024, October). Accessibility Evaluation of Web Systems for People with Visual Impairments: Findings from a Literature Survey. In Proceedings of the XXIII Brazilian Symposium on Human Factors in Computing Systems (pp. 1-13).`,
       abstract: `Accessibility evaluation is essential to determine how accessible a Web system is so that any user can access its content regardless of their limitations. In this context, this work presents a literature survey focused on the accessibility of Web systems, targeting users with visual impairments, emphasizing the importance of including accessibility from the initial phases to the completion of system development. Based on systematic procedures, we seek to provide a current view of the resources available in the technical literature for evaluating Web accessibility, with the primary goal of identifying and bringing together a variety of attributes, methods, metrics, and tools for accessibility improvement of Web systems. We analyzed 1245 papers in the literature; among them, 52 studies demonstrated available resources for evaluating systems by developers. We found that manual evaluation, evaluation with expert users, evaluation with end-users, and heuristic evaluation are the most recurrent accessibility evaluation types. We also cataloged 22 automatic tools, 16 attributes, 15 manual or automatic approaches, and seven heuristics for evaluating accessibility in Web systems. From our findings, it is possible to observe which resources have been used to maintain compliance with accessibility standards, helping professionals to include accessibility in their projects.`,
       keywords: [
@@ -193,7 +193,7 @@ export class PublicationsComponent {
       fullArticleLink:
         'https://sol.sbc.org.br/index.php/washes/article/view/35924',
       year: 2025,
-      metrics: { citations: { count: 0 } }, // Começa com 0 citações
+      metrics: { citations: { count: 0 } },
     },
     {
       id: 9,
@@ -211,7 +211,7 @@ export class PublicationsComponent {
       fullArticleLink:
         'https://sol.sbc.org.br/index.php/wit/article/view/35995',
       year: 2025,
-      metrics: { citations: { count: 0 } },
+      metrics: { citations: { count: 3 } },
     },
     {
       id: 10,
@@ -225,7 +225,7 @@ export class PublicationsComponent {
       fullArticleLink:
         'https://sol.sbc.org.br/index.php/wei/article/view/36209',
       year: 2025,
-      metrics: { citations: { count: 0 } },
+      metrics: { citations: { count: 1 } },
     },
     {
       id: 11,
@@ -234,7 +234,7 @@ export class PublicationsComponent {
       award:
         'Distinguished Paper Award 2026 - IEEE/ACM 48th International Conference on Software Engineering (ICSE), the premier Software Engineering conference worldwide;',
       isPortuguese: false,
-      citationHTML: `<strong>Lima, L.</strong>, Alves, V., Bezerra, C. I. M., & Braga, D. (2026). Connecting Generations Through Code: GABI, A Community-Driven Framework for Engineering Inclusive Financial Software for the Elderly. In <em>Proceedings of the IEEE/ACM 48th International Conference on Software Engineering</em>, (pp. 177-187). New York, NY, USA: ACM.`,
+      citationHTML: `<strong>Lima, L.</strong>, Alves, V., Bezerra, C. I. M., & Braga, D. (2026). Connecting Generations Through Code: GABI, A Community-Driven Framework for Engineering Inclusive Financial Software for the Elderly. In <em>Proceedings of the IEEE/ACM 48th International Conference on Software Engineering</em>, (pp. 177-187). New York, NY, USA: ACM. doi:10.1145/3786581.3786940`,
       abstract:
         'This paper presents GABI, a community-driven framework of guidelines for engineering inclusive Internet Banking interfaces for older adults, grounded in interviews with 12 elderly users and a systematic review of 13 studies drawn from 2,378 articles. The framework distills evidence-based recommendations addressing common barriers such as fear of making errors, low confidence in digital transactions, and interface complexity, and was validated with an average usefulness and clarity score of 4.5/5.',
       keywords: [
@@ -243,6 +243,7 @@ export class PublicationsComponent {
         'internet banking',
         'inclusive design',
       ],
+      fullArticleLink: 'https://dl.acm.org/doi/10.1145/3786581.3786940',
       year: 2026,
       metrics: { citations: { count: 0 } },
     },
@@ -251,31 +252,33 @@ export class PublicationsComponent {
       category: 'Journal Article',
       name: 'Refactoring Code Smells in Open Source Projects: A Hands-on Approach to Teaching Software Maintenance',
       isPortuguese: false,
-      citationHTML: `Bezerra, C., Alves, V., Lobo, A. H., Queiroz, J., <strong>Lima, L.</strong>, & Meirelles, P. (2026). Refactoring Code Smells in Open Source Projects: A Hands-on Approach to Teaching Software Maintenance. <em>Journal of Software Engineering Research and Development</em>, 14, 44-61.`,
+      citationHTML: `Bezerra, C., Alves, V., Lobo, A. H., Queiroz, J., <strong>Lima, L.</strong>, & Meirelles, P. (2026). Refactoring Code Smells in Open Source Projects: A Hands-on Approach to Teaching Software Maintenance. <em>Journal of Software Engineering Research and Development</em>, 14(1), 44-61. doi:10.5753/jserd.2026.5688`,
       abstract:
-        "An extended journal version of the team's SBES 2024 study on teaching code smell refactoring through contributions to open-source projects, reporting on students' quality improvements, the connections they drew between refactoring, testing, and debugging, and the challenges of refactoring code spread across multiple files.",
+        "This paper presents and evaluates a hands-on approach in which undergraduate students learn code smell refactoring by contributing to open source projects, applied in two Software Quality and Software Maintenance courses. Students recognized quality improvements and the link between refactoring and testing, but struggled with code complexity and changes spread across multiple files, which sometimes introduced new smells. On the open source side, they reported professional growth but found contribution workflows and getting feedback from maintainers difficult. The paper closes with practical recommendations for educators who want to bring real-world maintenance practice into the curriculum.",
       keywords: [
         'code smells',
         'refactoring',
         'software engineering education',
         'open-source software',
       ],
+      fullArticleLink: 'https://journals-sol.sbc.org.br/index.php/jserd/article/view/5688',
       year: 2026,
-      metrics: { citations: { count: 0 } },
+      metrics: { citations: { count: 1 } },
     },
     {
       id: 13,
       category: 'Conference',
       name: 'Investigating the Alignment of Software Testing Education with Industry Practices',
       isPortuguese: false,
-      citationHTML: `Silva, C. L., Alves, V., Bezerra, C., & <strong>Lima, L. G.</strong> (2026). Investigating the Alignment of Software Testing Education with Industry Practices. In <em>Anais do XXXIV Workshop sobre Educação em Computação</em>, (pp. 282-293). Gramado: SBC.`,
+      citationHTML: `Silva, C. L., Alves, V., Bezerra, C., & <strong>Lima, L. G.</strong> (2026). Investigating the Alignment of Software Testing Education with Industry Practices. In <em>Anais do XXXIV Workshop sobre Educação em Computação</em>, (pp. 282-293). Gramado: SBC. doi:10.5753/wei.2026.22639`,
       abstract:
-        'This paper investigates how well software testing education aligns with the practices expected by the software industry, examining the gap between what is taught in academic courses and what practitioners report needing on the job.',
+        'This study analyzes how software testing is taught in Brazilian undergraduate computing programs and how well it matches industry practice. It was carried out in three phases: a review of course syllabi, a survey of students about their testing education, and a survey of industry professionals about prevailing testing practices. The results reveal a significant discrepancy between academic instruction and industry practices in software testing.',
       keywords: [
         'software testing',
         'computer science education',
         'industry alignment',
       ],
+      fullArticleLink: 'https://sol.sbc.org.br/index.php/wei/article/view/43111',
       year: 2026,
       metrics: { citations: { count: 0 } },
     },
@@ -286,23 +289,66 @@ export class PublicationsComponent {
       award:
         "Best Short Paper Award 2026 - LLM4Code, 3rd International Workshop on Large Language Models For Code (IEEE/ACM, co-located with ICSE 2026);",
       isPortuguese: false,
-      citationHTML: `Freitas, J., Pereira, G., <strong>Lima, L.</strong>, de Sousa, C. R., Filho, E. C., Souza Filho, J. C., Maia, P. H., & Bezerra, C. (2026). Evaluating LLMs-Driven Java Code Refactoring from a Developer's Perspective. In <em>Proceedings of the 3rd International Workshop on Large Language Models For Code (LLM4Code '26)</em>, (pp. 126-130). New York: ACM.`,
+      citationHTML: `Freitas, J., Pereira, G., <strong>Lima, L.</strong>, de Sousa, C. R., Filho, E. C., Souza Filho, J. C., Maia, P. H., & Bezerra, C. (2026). Evaluating LLMs-Driven Java Code Refactoring from a Developer's Perspective. In <em>Proceedings of the 3rd International Workshop on Large Language Models For Code (LLM4Code '26)</em>, (pp. 126-130). New York: ACM. doi:10.1145/3786181.3788720`,
       abstract:
         "This study evaluates Java code refactorings produced by Large Language Models from the perspective of professional developers, extending the team's earlier work on LLM-driven refactoring perception with a focus on code quality and developer trust.",
       keywords: ['Large Language Models', 'Refactoring', 'Java'],
+      fullArticleLink: 'https://dl.acm.org/doi/10.1145/3786181.3788720',
+      year: 2026,
+      metrics: { citations: { count: 0 } },
+    },
+    {
+      id: 15,
+      category: 'Conference',
+      name: 'NAVEGO: Design and Formative Evaluation of an Accessible Web Extension to Support Safe Browsing for Older Adults',
+      isPortuguese: false,
+      citationHTML: `Berndt, A., Guerreiro, E., Ziviani, G., Sá, J., <strong>Lima, L.</strong>, Kado, S., de Meireles, S. P., et al. (2026). NAVEGO: Design and Formative Evaluation of an Accessible Web Extension to Support Safe Browsing for Older Adults. In <em>Proceedings of the 32nd Brazilian Symposium on Multimedia and the Web (WebMedia 2026)</em>, (pp. 338-346). Lavras: SBC.`,
+      abstract:
+        "Older adults' growing dependence on web technologies can increase their exposure to intrusive advertising, misleading interfaces, fraudulent forms, phishing, and social engineering. This paper presents NAVEGO, a web extension that combines ad and pop-up blocking, detection of potentially malicious forms, accessible interface resources, and preventive guidance. A formative evaluation applying accessibility and usable security criteria jointly yields a set of design requirements and redesign recommendations, and defines the corrections needed before evaluating the extension with older participants.",
+      keywords: ['web accessibility', 'older adults', 'usable security', 'browser extension'],
+      fullArticleLink: 'https://sol.sbc.org.br/index.php/webmedia/article/view/46107',
       year: 2026,
       metrics: { citations: { count: 0 } },
     },
   ];
 
   publicationsData: Publication[];
+  visiblePublications: Publication[];
+
+  filters: { key: string; label: string; count: number }[];
+  activeFilter = 'all';
 
   constructor() {
     this.publicationsData = this.publications
       .sort((a, b) => b.year - a.year)
       .map((pub) => ({
         ...pub,
-        showAbstract: false,
+        award: pub.award?.trim().replace(/;$/, ''),
       }));
+    this.visiblePublications = this.publicationsData;
+
+    const count = (key: string) => this.matching(key).length;
+    this.filters = [
+      { key: 'all', label: 'All', count: count('all') },
+      { key: 'awarded', label: 'Awarded', count: count('awarded') },
+      { key: 'Journal Article', label: 'Journal', count: count('Journal Article') },
+      { key: 'Conference', label: 'Conference', count: count('Conference') },
+      { key: 'Event Summary', label: 'Summary', count: count('Event Summary') },
+    ].filter((f) => f.count > 0);
+  }
+
+  setFilter(key: string): void {
+    this.activeFilter = key;
+    this.visiblePublications = this.matching(key);
+  }
+
+  trackById(_: number, pub: Publication): number {
+    return pub.id;
+  }
+
+  private matching(key: string): Publication[] {
+    if (key === 'all') return this.publicationsData;
+    if (key === 'awarded') return this.publicationsData.filter((p) => !!p.award);
+    return this.publicationsData.filter((p) => p.category === key);
   }
 }

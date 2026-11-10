@@ -12,6 +12,10 @@ import { HeaderComponent } from './events/header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RecognitionComponent } from './recognition/recognition.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { EducationComponent } from './education/education.component';
+import { ResearchComponent } from './research/research.component';
+import { AcademicServiceComponent } from './academic-service/academic-service.component';
+import { PhotoSlotComponent } from './shared/photo-slot/photo-slot.component';
 
 
 @NgModule({
@@ -31,6 +35,10 @@ import { ProjectsComponent } from './projects/projects.component';
     NavbarComponent,
     RecognitionComponent,
     ProjectsComponent,
+    EducationComponent,
+    ResearchComponent,
+    AcademicServiceComponent,
+    PhotoSlotComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
